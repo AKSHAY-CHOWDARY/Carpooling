@@ -6,6 +6,11 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+.google-icon{
+  background-color: transparent;
+  border-radius: 50%;
+ 
+}
 .bro {
   width: 100%;
   height: 100vh;

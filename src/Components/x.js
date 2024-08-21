@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 import { addDoc, collection, Timestamp, doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../config/firebase-configuration";
 
-function UserRide1() {
+function App() {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: 'AIzaSyB_bX8v9W5qD-n9FRPyO4U_sL1j4bmcZD0',
     libraries: ["places"],
@@ -272,4 +272,4 @@ function UserRide1() {
   );
 }
 
-export default UserRide1;
+export default App;

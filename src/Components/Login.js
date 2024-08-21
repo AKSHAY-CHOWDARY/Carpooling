@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from "../config/firebase-configuration";
+import { FcGoogle } from "react-icons/fc";
 import './Login.css';
 function Login() {
   const navigate = useNavigate();
@@ -67,8 +68,11 @@ function Login() {
           <button type="submit" className="btn">Login</button>
           <div className="google">
             <p className="mx-auto text-center">or</p>
-            <button className="btn  btn-primary p-2" onClick={signInWithGoogle}>
-              <img className="gimg1 px-1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJa5buc9fiulK6yl0O4o9WGa3FLrEINhyxcw&s"></img>Sign in with Google</button></div>
+            <button className="btn btn-info" onClick={signInWithGoogle}>
+              <FcGoogle width="20px" className="google-icon"/>
+              Sign in with Google
+              </button>
+            </div>
           <div>
             <p>
               Don't have an account?{" "}

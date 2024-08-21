@@ -79,7 +79,7 @@ function AvailUsers() {
         });
   
         // Navigate to the chat page with the user's email passed as state
-        navigate('/Chat', { state: { email: user.email } });
+        navigate('/Chat', { state: { email: user.email,isDriver:user.isDriver} });
       } else {
         console.error("No matching driver document found.");
         setError("Could not find the current user's ride document.");
