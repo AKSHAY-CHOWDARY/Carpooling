@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../config/firebase-configuration";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
+import './Profile.css';
 
 function Profile() {
   const [userData, setUserData] = useState(null);
@@ -35,6 +36,7 @@ function Profile() {
           setNewCarNumber(data.carNumber || "");
           setNewRegistrationNumber(data.registrationNumber || "");
           setNewDescription(data.description || "");
+          
         } else {
           setErr("No user data found");
         }
@@ -67,6 +69,7 @@ function Profile() {
         carNumber: newCarNumber,
         registrationNumber: newRegistrationNumber,
         description: newDescription,
+       
       });
 
       console.log("Profile updated successfully");
@@ -76,6 +79,8 @@ function Profile() {
       setErr("Failed to update profile");
     }
   };
+
+  
 
   if (loading) {
     return <div>Loading...</div>;
@@ -87,25 +92,26 @@ function Profile() {
 
   return (
     <div>
+      
       <div className="profile-container">
+        
         {userData ? (
           <div className="container1 py-6">
             <div className="row justify-content-center">
               <div className="col-md-8 mt-3 mb-3">
+              <header className="profile-header">
+        <div className="profile-header-content">
+          <div className="profile-image-container">
+            <img src="https://m.media-amazon.com/images/I/41jLBhDISxL.jpg" alt="Profile" className="profile-image" />
+            
+          </div>
+          <div className="profile-header-info">
+            <h2>{userData.firstName || 'First Name'} {userData.lastName || 'Last Name'}</h2>
+            <p>{userData.email || 'Email'}</p>
+          </div>
+        </div>
+      </header>
                 <div className="bg-white shadow rounded overflow-hidden profile-card">
-                  <div className="cover">
-                    <div className="profile-head d-flex align-items-center">
-                      <div className="profile">
-                     
-                      </div>
-                      <div className="ml-4 text-white">
-                        <h4 className="mt-0 mb-0">
-                          {userData.firstName || 'First Name'} {userData.lastName || 'Last Name'}
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-
                   <div className="px-4 py-3 profile-info-container d-flex justify-content-around">
                     <div className="section">
                       <h5 className="mb-0">About</h5>
@@ -231,4 +237,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Profile

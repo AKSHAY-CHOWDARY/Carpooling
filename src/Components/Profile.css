@@ -81,15 +81,58 @@
     padding: 0 1rem;
 }
 
-/* Flexbox for About and Car Information sections side by side */
-.profile-info-container {
-    /* Small gap between sections */
-}
+
 
 .profile-info-container .section {
     width: 48%; /* Ensure sections fit side by side with a gap */
 }
 
+.profile-header {
+    background-color: rgb(9, 9, 9);
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    color:orange;
+  }
+  
+  .profile-header-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-image-container {
+    position: relative;
+    border: 5px solid black; /* Black border around the image */
+    border-radius: 50%; /* Make the border circular */
+    padding: 5px; /* Space between the border and the image */
+    background-color: white; /* Background color of the border */
+    display: flex;
+    justify-content: center; /* Center the image within the border */
+    align-items: center; /* Center the image within the border */
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Ensure the image is circular */
+    object-fit: cover;
+  }
+  
+  .profile-header-info {
+    margin-left: 20px;
+  }
+  
+  .profile-header-info h2 {
+    margin: 0;
+  }
+  
+  .profile-header-info p {
+    margin: 5px 0;
+  }
+  
+  /* Centering profile header container */
+  
 /* Responsive styles */
 @media (max-width: 768px) {
     .profile-head {

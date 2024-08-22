@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { auth, db } from "../config/firebase-configuration";
 import { collection, query, where, getDoc,getDocs, doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { FaLocationDot } from "react-icons/fa6";
 
 function AvailUsers() {
   const navigate = useNavigate();
@@ -114,19 +115,20 @@ function AvailUsers() {
           {users.slice(startIndex, startIndex + cardsPerPage).map((user) => (
             <div key={user.id} className="card w-25" style={{ minHeight: "400px" }}>
               <div className="card-header">
+              <img src="https://o2osell.com/oc/img/male_default_dp.png?1596813981" alt="Driver" />
                 <h5 className="card-title">
                   {user.firstName} {user.lastName}
                 </h5>
               </div>
               <div className="card-body">
-                Passengers: {user.passengers}<br />
-                Pickup: {user.pickup}<br />
-                Destination: {user.destination}<br />
-                Restrictions: {user.restrictions}<br />
-                Phone: {user.phoneNo}
+              <div><b>Passengers:</b> <span>{user.passengers}</span></div>
+    <div><b><FaLocationDot color="orange"/>Pickup:</b> <span>{user.pickup.slice(0,15)+'...'}</span></div>
+    <div><b><FaLocationDot color="orange"/>Drop:</b> <span>{user.destination.slice(0,15)+'...'}</span></div>
+    <div><b>Restrictions:</b> <span>{user.restrictions}</span></div>
+    <div><b>Phone:</b> <span>{user.phoneNo}</span></div>
               </div>
               <div className="card-footer">
-                <button className="btn btn-primary" onClick={() => handleContactUser(user)}>
+                <button className="btn btn200" onClick={() => handleContactUser(user)}>
                   Contact User
                 </button>
               </div>

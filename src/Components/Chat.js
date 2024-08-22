@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { auth, db } from "../config/firebase-configuration";
+import Header from "./Header";
+import Footer from "./Footer";
 import {
   collection,
   addDoc,
@@ -90,54 +92,67 @@ function Chat() {
       console.error("Error fetching or updating ride:", error);
     }
   };
-
+  
   return (
+    <div className="Chatapp">
+      <Header />
     <div className="chat-interface">
-      <div className="messages">
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            className={`message ${
-              msg.sender === currentUser.email ? "sent" : "received"
-            }`}
-          >
-            <p> {msg.text} </p>
-          </div>
-        ))}
+      
+      <div className="fireApp">
+      <header>
+        <h1><span role="img" aria-label="Chat Icons">⚛️🔥💬</span></h1>
+      </header>
       </div>
-      <div className="send-message">
-        <input
-          type="text"
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-          placeholder="Type a message..."
-        />
-        <button onClick={sendMessage}>Send</button>
-      </div>
-      <div>
-        {state?.isDriver ? (
-          <button
-            className="btn btn-primary p-2 m-1"
-            onClick={() => {
-              handlePayNow();
-              navigate("/Payment");
-            }}
-          >
-            Pay Now
-          </button>
-        ) : (
-          <button
-            className="btn btn-primary p-2 m-1"
-            onClick={() => {
-              handlePayNow();
-              navigate("/Home");
-            }}
-          >
-            Finish Ride
-          </button>
-        )}
-      </div>
+    <div className="messages">
+      {messages.map((msg, index) => (
+        <div
+          key={index}
+          className={`message ${
+            msg.sender === currentUser.email ? "sent" : "received"
+          } `}
+        >
+          
+          <p>{msg.text}</p>
+         
+        </div>
+      ))}
+     
     </div>
+    <div className="send-message">
+      <input
+        type="text"
+        value={newMessage}
+        onChange={(e) => setNewMessage(e.target.value)}
+        placeholder="Type a message..."
+      />
+      <button onClick={sendMessage}>Send</button>
+    </div>
+    <div className="action-buttons">
+      {state?.isDriver ? (
+        <button
+          className="btn btn-primary p-2 m-1"
+          onClick={() => {
+            handlePayNow();
+            navigate("/Payment");
+          }}
+        >
+          Pay Now
+        </button>
+      ) : (
+        <button
+          className="btn btn-primary p-2 m-1"
+          onClick={() => {
+            handlePayNow();
+            navigate("/Home");
+          }}
+        >
+          Finish Ride
+        </button>
+      )}
+    </div>
+  </div>
+  <Footer />
+  </div>
   );
 }
 

@@ -212,7 +212,7 @@ function Payment() {
               </div>
               <div className="p-3">
                 <button
-                  className="btn btn-warning btn-block free-button"
+                  className="btn btn300 btn-block free-button"
                   onClick={() =>
                     navigate(
                       '/Feedback'

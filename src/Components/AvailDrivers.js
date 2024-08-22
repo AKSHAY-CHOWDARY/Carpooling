@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { auth, db } from "../config/firebase-configuration";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { FaLocationDot } from "react-icons/fa6";
 
 function AvailDrivers() {
    
@@ -79,21 +80,22 @@ function AvailDrivers() {
         {drivers.map((driver) => (
             <div key={driver.id} className="card w-25" style={{minHeight:"400px"}}>
               <div className="card-header">
+              <img src="https://o2osell.com/oc/img/male_default_dp.png?1596813981" alt="Driver" />
                 <h5 className="card-title">
                   {driver.firstName} {driver.lastName}
                 </h5>
               </div>
               <div className="card-body">
-                  Car Model: {driver.carModel}<br />
-                  Car Number: {driver.carNumber}<br />
-                  Pickup: {driver.pickup}<br />
-                  Destination: {driver.destination}<br />
-                  Restrictions: {driver.restrictions}<br />
-                  Phone: {driver.phoneNo}
+              <div><b>Car Model:</b> <span>{driver.carModel}</span></div>
+    <div><b>Car Number:</b> <span>{driver.carNumber}</span></div>
+    <div><b><FaLocationDot color="orange"/>Pickup:</b> <span>{driver.pickup.slice(0,15)+'...'}</span></div>
+    <div><b><FaLocationDot color="orange"/>Drop:</b> <span>{driver.destination.slice(0,15)+'...'}</span></div>
+    <div><b>Restrictions:</b> <span>{driver.restrictions}</span></div>
+    <div><b>Phone:</b> <span>{driver.phoneNo}</span></div>
                 
               </div>
               <div className="card-footer">
-                <button className="btn btn-primary" onClick={() => {
+                <button className="btn btn200" onClick={() => {
                       navigate('/Chat', { state: { email: driver.email } });
                 }}>Contact Driver</button>
               </div>

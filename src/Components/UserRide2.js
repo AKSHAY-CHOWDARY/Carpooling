@@ -226,8 +226,8 @@ function UserRide2() {
         </Box>
       </HStack>
       <HStack spacing={4} mt={4} justifyContent="space-between">
-        <Text>Distance: {distance} </Text>
-        <Text>Duration: {duration} </Text>
+        <Text color={"black"} >Distance: {distance} </Text>
+        <Text color={"black"} >Duration: {duration} </Text>
         <IconButton
           me={2}
           aria-label="center back"

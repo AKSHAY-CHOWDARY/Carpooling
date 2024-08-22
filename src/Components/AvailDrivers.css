@@ -1,9 +1,63 @@
+/* General Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-.cardDeck{
-    margin: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* Existing styles */
+.cardDeck {
+  margin: auto;
+}
+
+.btn200 {
+  background-color: orange;
+}
+
+/* Card Header Styles */
+.card-header {
+  text-align: center; /* Center the content in the header */
+  padding: 10px;
+  
+  color:orange;
+}
+
+.card-header img {
+  width: 100px; /* Adjust the size of the image */
+  height: 100px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image fits well */
+  border: 3px solid #ddd; /* Border around the image */
+  margin-bottom: 10px; /* Space between the image and name */
+  margin:auto;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin: 0; /* Remove default margin */
+}
+
+/* Card Body Styles */
+.card-body {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  padding: 30px 40px;
+  
+
+}
+
+.card-body div {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  margin-bottom: 8px; /* Space between each line */
+}
+
+.card-body b {
+  display: flex;
+  flex: 0 0 100px;
+  justify-content: space-between;
+   /* Align text to the right */
+  margin: 0; /* No space between label and value */
+}
+
+
